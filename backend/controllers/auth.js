@@ -1,7 +1,7 @@
 const dotenv = require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const schemaPasswordValidator = require('../config/passwordValidator');
+const schemaPasswordValidator = require('../config/passordValidator');
 const dbConnect = require('../config/db');
 
 
