@@ -13,7 +13,6 @@ exports.signup = (req, res) => {
         dbConnect.query('INSERT INTO users (pseudo, lastname, firstname, email, password, bio, picture, isAdmin) VALUES (?,?,?,?,?,?,?,?)', [req.body.pseudo, req.body.lastname, req.body.firstname, req.body.email, hash, req.body.bio, req.body.picture, req.body.isAdmin], function (error, results, fields) {
           if (error) throw error;
           return res.status(201).json({ message: "Utilisateur créé !" })
-          // return res.send(results.id)
         });
       })
       .catch((error) => res.status(500).json({ error }));
