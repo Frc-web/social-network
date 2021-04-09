@@ -11,13 +11,13 @@ const LoginForm = () => {
     const passwordError = document.querySelector(".password.error");
 
     axios({
-      method: "post",
-      url: `${process.env.REACT_APP_API_URL}api/user/login`, /* dans react, les variables d'environnement commencent par REACT_APP */
+      method: 'post',
+      url: 'http://localhost:5000/api/user/login', /* dans react, les variables d'environnement commencent par REACT_APP */
       withCredentials: true,
       data: {
         pseudo, /* on passe la constante pseudo du hook, qui revient à (pseudo: pseudo) */
         password,
-      },
+      }, 
     })
       .then((res) => {
         console.log(res);

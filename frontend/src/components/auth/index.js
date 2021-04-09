@@ -21,9 +21,9 @@ const Auth = ( props ) => {
       <div className="form-container">
         <ul>
           <li id="signup-btn" onClick={selectChoice}
-          className={signUpChoice ? "active-btn" : null}>S'inscrire</li> {/* si signUpForm est sur true (mettre la classe active-btn), sinon (pas de classe) */}
+            className={signUpChoice ? "active-btn" : null}>S'inscrire</li> {/* si signUpForm est sur true (mettre la classe active-btn), sinon (pas de classe) */}
           <li id="login-btn" onClick={selectChoice}
-          className={loginChoice ? "active-btn" : null}>Se connecter</li>
+            className={loginChoice ? "active-btn" : null}>Se connecter</li>
         </ul>
         {signUpChoice && <SignupForm />} {/* si signUpForm est sur true, on affiche la page Signup */}
         {loginChoice && <LoginForm />} {/* si loginForm est sur true, on affiche la page Login */}

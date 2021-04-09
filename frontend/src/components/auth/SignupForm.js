@@ -35,7 +35,7 @@ const SignupForm = () => {
   } else {
     await axios({
       method: "post",
-      url: `${process.env.REACT_APP_API_URL}api/user/login`,
+      url: 'http://localhost:5000/api/user/signup',
       data: {
         lastname,
         firstname,
@@ -47,7 +47,7 @@ const SignupForm = () => {
       .then((res) => {
         console.log(res);
         if (res.data.errors) {
-          lastnameError.innerHTML = res.data.errors.lastname;
+          lastnameError.innerHTML = "Veuillez remplir ce champ";
           firstnameError.innerHTML = res.data.errors.firstname;
           pseudoError.innerHTML = res.data.errors.pseudo;
           emailError.innerHTML = res.data.errors.email;
@@ -65,7 +65,7 @@ const SignupForm = () => {
       <>
         <LoginForm /> {/* on met le formulaire de connection + le texte qui suit */}
         <span></span> {/* pour mettre le texte en dessous du submit */}
-        <h4 className="success">
+         <h4 className="success">
           Enregistrement réussi, veuillez-vous connecter
         </h4>
       </>
