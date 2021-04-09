@@ -4,6 +4,7 @@ module.exports = (req, res, next) => {
   try {
     const recupToken = req.headers.authorization.split(' ')[1];
     req.decodToken = jwt.verify(recupToken, process.env.TOKEN);
+    console.log(req.decodToken);
     next();
 
   } catch {
