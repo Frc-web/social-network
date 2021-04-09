@@ -47,7 +47,7 @@ const SignupForm = () => {
       .then((res) => {
         console.log(res);
         if (res.data.errors) {
-          lastnameError.innerHTML = "Veuillez remplir ce champ";
+          lastnameError.innerHTML = res.data.errors.lastname;
           firstnameError.innerHTML = res.data.errors.firstname;
           pseudoError.innerHTML = res.data.errors.pseudo;
           emailError.innerHTML = res.data.errors.email;
