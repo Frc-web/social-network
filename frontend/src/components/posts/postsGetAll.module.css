@@ -1,0 +1,9 @@
+.postContainer {
+  background: rgb(160, 160, 240);
+  min-width: 490px;
+  width: 60%;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid rgb(88, 88, 245);
+}

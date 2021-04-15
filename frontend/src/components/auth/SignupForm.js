@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import LoginForm from "./LoginForm";
+import styles from './signupForm.module.css';
 
 const SignupForm = () => {
   const [formSubmit, setFormSubmit] = useState(false); /* est ce que le formulaire a été soumis ? (false par défaut) */
@@ -70,7 +71,7 @@ const SignupForm = () => {
         </h4>
       </>
     ) : ( /* on enlève tout ce qui suit (si formSubmit est sur false, tout ce qui suit est affiché */
-    <form action="" onSubmit={handleRegister} id="sign-up-form">
+    <form className={styles.form} action="" onSubmit={handleRegister} id="sign-up-form">
           <label htmlFor="lastname">Nom</label>
           <br />
           <input

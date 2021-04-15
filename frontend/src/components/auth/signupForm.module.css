@@ -1,0 +1,42 @@
+.form {
+  width: 400px;
+  margin: 10px auto 0;
+  padding: 20px;
+}
+
+input {
+  border-radius: 7px;
+  outline: none;
+}
+
+button, input[type="submit"] {
+  background: pink;
+  color: blue;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  margin-top: 25px;
+  box-shadow: 3px 3px 1px rgba(51, 51, 51, 0.418);
+  border: none;
+}
+
+button, input[type="submit"]:hover {
+  background: rgb(112, 112, 248);
+  color: pink;
+  border: 1px solid pink;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+.success {
+  color: green;
+  font-weight: bold;
+}

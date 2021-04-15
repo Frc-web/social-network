@@ -1,0 +1,26 @@
+.postContainer {
+  background: rgb(160, 160, 240);
+  min-width: 490px;
+  width: 60%;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid rgb(88, 88, 245);
+}
+
+textarea {
+  min-height: 80px;
+  border: 1px solid pink;
+  border-radius: 20px 20px 6px 20px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  width: 100%;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+input {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: 1px solid pink;
+}

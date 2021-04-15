@@ -1,10 +1,10 @@
-// App est le composant principal de index.js, le fichier le plus haut
 import React from 'react';
 import Routes from "./components/routes";
+import styles from './app.module.css';
 
 const App = () => {
   return (
-    <div className="app">
+    <div className={styles.app}>
       <Routes />
     </div>
   );
