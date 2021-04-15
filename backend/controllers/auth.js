@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const schemaPasswordValidator = require('../config/passordValidator');
 const dbConnect = require('../config/db');
 
-
 exports.signup = (req, res) => {
   if (schemaPasswordValidator.validate(req.body.password)) {
     bcrypt
@@ -33,7 +32,7 @@ exports.login = (req, res, next) => {
           if (!valid) {
             return res.status(401).json({ error: "Mot de passe incorrect !" });
           }
-          return res.status(200).json({
+          return res.status(200).json({ 
             userId: results[0].id,
             token: jwt.sign(
               { userId: results[0].id },

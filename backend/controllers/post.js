@@ -7,7 +7,7 @@ exports.createPost = (req, res, _next) => {
     attachmentUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
   }
   console.log(req.body);
-  dbConnect.query(`INSERT INTO posts (userId, title, content, attachment, date ) VALUES (?,?,?,?, NOW())`, [req.decodToken.id, req.body.title, req.body.content, attachmentUrl], function (error, results, fields) {
+  dbConnect.query(`INSERT INTO posts (userId, title, content, attachment, date ) VALUES (?,?,?,?, NOW())`, [req.decodToken.userId, req.body.title, req.body.content, attachmentUrl], function (error, results, fields) {
     if (error) throw error;
     return res.status(201).json({ message: "Message créé !" })
   });
