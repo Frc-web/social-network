@@ -8,7 +8,7 @@ schemaPasswordValidator
     .has().uppercase()                                   // Doit contenir des lettres majuscules
     .has().lowercase()                                   // Doit contenir des lettres minuscules
     .has().digits(2)                                     // Doit contenir deux chiffres
-    .has().symbols()                                     /* Doit contenir des symboles */
+    .has().symbols()                                     // Doit contenir des symboles
     .has().not().spaces()                                // Ne doit pas contenir d'espaces
     .is().not().oneOf(['123Password@', 'Password123@']); // Blacklist de ces valeurs
 
