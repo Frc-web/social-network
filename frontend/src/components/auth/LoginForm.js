@@ -8,34 +8,29 @@ const LoginForm = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    const pseudoError = document.querySelector(".pseudo.error"); /* quand on passe la costante pseudoError, on sélectionne dans le DOM les classes .pseudo et .error */
-    const passwordError = document.querySelector(".password.error");
+    // const pseudoError = document.querySelector(".pseudo.error"); 
+    // const passwordError = document.querySelector(".password.error");
 
     axios({
       method: 'post',
-      url: 'http://localhost:5000/api/user/login', /* dans react, les variables d'environnement commencent par REACT_APP */
-      withCredentials: true,
+      url: 'http://localhost:5000/api/user/login',
       data: {
-        pseudo, /* on passe la constante pseudo du hook, qui revient à (pseudo: pseudo) */
+        pseudo,
         password,
       }, 
     })
       .then((res) => {
         console.log(res);
-        if (res.data.errors) { /* si une erreur est revoyée dans la réponse */
-          pseudoError.innerHTML = res.data.errors.pseudo; /* on injecte dans les classe .pseudo et .error */
-          passwordError.innerHTML = res.data.errors.password;
-        } else {
-          window.location = "/"; /* on va à l'accueil, là où il y a le slash */
-        }
+          localStorage.setItem("auth", res.data.token);
+          window.location = "/";
       })
-      .catch((err) => { /* si il y a une erreur dans la requête axios */
+      .catch((err) => {
         console.log(err);
       });
   }
 
   return (
-    <form id="sign-up-form" action="" onSubmit={handleLogin}>{/* quand on fait un onSubmit, on fait un input type submit, qui déclenche la fonction quand on clique dedans */}
+    <form className={styles.formLogin} id="sign-up-form" action="" onSubmit={handleLogin}>{/* quand on fait un onSubmit, on fait un input type submit, qui déclenche la fonction quand on clique dedans */}
       <label htmlFor="pseudo">Pseudo</label>
       <br />
       <input

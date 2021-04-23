@@ -1,10 +1,10 @@
 import React from 'react';
 import Routes from "./components/routes";
-import styles from './app.module.css';
+import './styles.css';
 
 const App = () => {
   return (
-    <div className={styles.app}>
+    <div id="app">
       <Routes />
     </div>
   );

@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+  background: linear-gradient(160deg, #005de9 0%, #74d8ff 100%) no-repeat;
+  height: 100vh;
+}
+
+.error {
+  color: rgb(189, 7, 7);
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+}

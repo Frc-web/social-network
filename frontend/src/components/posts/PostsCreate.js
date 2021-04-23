@@ -8,15 +8,18 @@ const PostsCreate = () => {
 
   const handlePost = (event) => {
     event.preventDefault();
-
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": "bearer " + localStorage.getItem('auth')
+    }
     axios({
       method: 'post',
       url: 'http://localhost:5000/api/post/',
-      withCredentials: true,
       data: {
         title,
         content,
       },
+      headers
     })
       .then((res) => {
         console.log(res);
@@ -27,8 +30,8 @@ const PostsCreate = () => {
   }
 
   return (
-      <div className={styles.postContainer}>
-      <form id="post-form" action="" onSubmit={handlePost}>
+      <div className={styles.postCreateContainer}>
+      <form className={styles.formPosts} id="post-form" action="" onSubmit={handlePost}>
         <label htmlFor="title">Titre</label>
         <br />
         <input

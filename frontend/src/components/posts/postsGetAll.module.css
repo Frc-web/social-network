@@ -1,9 +1,9 @@
-.postContainer {
-  background: rgb(160, 160, 240);
+.postsContainer {
+  background-image: linear-gradient( 135deg,#c993ff 0%, #ca94ff 50%, #b56bff 100%);
   min-width: 490px;
   width: 60%;
   text-align: center;
   padding: 20px;
   border-radius: 20px;
-  border: 2px solid rgb(88, 88, 245);
+  box-shadow: 0px 0px 11px 1px rgb(88 88 245);
 }

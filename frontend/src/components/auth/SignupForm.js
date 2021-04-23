@@ -15,63 +15,55 @@ const SignupForm = () => {
   const handleRegister = async (event) => {
     event.preventDefault();
     const terms = document.getElementById("terms");
-    const lastnameError = document.querySelector(".lastname.error");
-    const firstnameError = document.querySelector(".firstname.error");
-    const pseudoError = document.querySelector(".pseudo.error");
-    const emailError = document.querySelector(".email.error");
-    const passwordError = document.querySelector(".password.error");
-    const passwordConfirmError = document.querySelector(".password-confirm.error");
-    const termsError = document.querySelector(".terms.error");
+    // const lastnameError = document.querySelector(".lastname");
+    // const firstnameError = document.querySelector(".firstname");
+    // const pseudoError = document.querySelector(".pseudo");
+    // const emailError = document.querySelector(".email");
+    // const passwordError = document.querySelector(".password");
+    const passwordConfirmError = document.querySelector(".password-confirm");
+    const termsError = document.querySelector(".terms");
 
-    passwordConfirmError.innerHTML = ""; /* Pour enlever les messages d'erreurs quand écrit de nouveau dans les inputs */
+    // pour faire disparaitre les erreurs après soumission
+    passwordConfirmError.innerHTML = "";
     termsError.innerHTML = "";
 
-  if (password !== controlPassword || !terms.checked) {
-    if (password !== controlPassword)
-      passwordConfirmError.innerHTML =
-        "Les mots de passe ne correspondent pas";
-
-    if (!terms.checked)
-      termsError.innerHTML = "Veuillez valider les conditions générales";
-  } else {
-    await axios({
-      method: "post",
-      url: 'http://localhost:5000/api/user/signup',
-      data: {
-        lastname,
-        firstname,
-        pseudo,
-        email,
-        password,
-      },
-    })
-      .then((res) => {
-        console.log(res);
-        if (res.data.errors) {
-          lastnameError.innerHTML = res.data.errors.lastname;
-          firstnameError.innerHTML = res.data.errors.firstname;
-          pseudoError.innerHTML = res.data.errors.pseudo;
-          emailError.innerHTML = res.data.errors.email;
-          passwordError.innerHTML = res.data.errors.password;
-        } else { /* si il n'y a pas d'erreurs, setFormSubmit devient true */
-          setFormSubmit(true);
-        }
+    if (password !== controlPassword || !terms.checked) {
+      if (password !== controlPassword)
+        passwordConfirmError.innerHTML =
+          "Les mots de passe ne correspondent pas";
+      if (!terms.checked)
+        termsError.innerHTML = "Veuillez valider les conditions générales";
+    } else {
+      await axios({
+        method: "post",
+        url: 'http://localhost:5000/api/user/signup',
+        data: {
+          lastname,
+          firstname,
+          pseudo,
+          email,
+          password,
+        },
       })
-      .catch((err) => {console.log(err)});
-  }
-};
+        .then((res) => {
+          console.log(res);
+          setFormSubmit(true);
+        })
+        .catch((err) => { console.log(err) });
+    }
+  };
   return (
     <>
-    {formSubmit ? ( /* est ce que formSubmit est sur true ? */
-      <>
-        <LoginForm /> {/* on met le formulaire de connection + le texte qui suit */}
-        <span></span> {/* pour mettre le texte en dessous du submit */}
-         <h4 className="success">
-          Enregistrement réussi, veuillez-vous connecter
+      {formSubmit ? ( /* est ce que formSubmit est sur true ? */
+        <>
+          <LoginForm /> {/* on met le formulaire de connection + le texte qui suit */}
+          <span></span> {/* pour mettre le texte en dessous du submit */}
+          <h4 className="success">
+            Enregistrement réussi, veuillez-vous connecter
         </h4>
-      </>
-    ) : ( /* on enlève tout ce qui suit (si formSubmit est sur false, tout ce qui suit est affiché */
-    <form className={styles.form} action="" onSubmit={handleRegister} id="sign-up-form">
+        </>
+      ) : ( /* on enlève tout ce qui suit (si formSubmit est sur false, tout ce qui suit est affiché */
+        <form className={styles.formSignup} action="" onSubmit={handleRegister} id="sign-up-form">
           <label htmlFor="lastname">Nom</label>
           <br />
           <input
@@ -82,6 +74,7 @@ const SignupForm = () => {
             value={lastname}
           />
           <div className="lastname error"></div>
+          {/* <div className={`${styles.lastname} ${styles.error}`}></div> */}
           <br />
           <label htmlFor="firstname">Prénom</label>
           <br />
@@ -128,7 +121,7 @@ const SignupForm = () => {
           <div className="password error"></div>
           <br />
           <label htmlFor="password-conf">Confirmer mot de passe</label>
-          <br/>
+          <br />
           <input
             type="password"
             name="password"
@@ -138,18 +131,24 @@ const SignupForm = () => {
           />
           <div className="password-confirm error"></div>
           <br />
-          <input type="checkbox" id="terms" />
-          <label htmlFor="terms">
-            J'accepte les{" "}
-            <a href="/" target="_blank" rel="noopener noreferrer"> {/* noopener noreferrer pour la sécurité */}
-              conditions générales
-            </a>
-          </label>
-          <div className="terms error"></div>
+            <div class={styles.myDiv}>
+              <div>
+
+              <input type="checkbox" id="terms" />
+              </div>
+              <div>
+
+              <label htmlFor="terms">J'accepte les
+              <a href="/" target="_blank" rel="noopener noreferrer"> conditions générales
+              </a>
+              </label>
+              </div>
+            <div className="terms error"></div>
+          </div>
           <br />
-      <input type="submit" value="Valider inscription" />
-    </form>
-    )}
+          <input type="submit" value="Valider inscription" />
+        </form>
+      )}
     </>
   );
 };
