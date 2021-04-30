@@ -60,7 +60,7 @@ const SignupForm = () => {
           <span></span> {/* pour mettre le texte en dessous du submit */}
           <h4 className="success">
             Enregistrement réussi, veuillez-vous connecter
-        </h4>
+          </h4>
         </>
       ) : ( /* on enlève tout ce qui suit (si formSubmit est sur false, tout ce qui suit est affiché */
         <form className={styles.formSignup} action="" onSubmit={handleRegister} id="sign-up-form">
@@ -131,20 +131,18 @@ const SignupForm = () => {
           />
           <div className="password-confirm error"></div>
           <br />
-            <div class={styles.myDiv}>
-              <div>
-
+          <div className={styles.myDiv}>
+            <div>
               <input type="checkbox" id="terms" />
-              </div>
-              <div>
-
+            </div>
+            <div>
               <label htmlFor="terms">J'accepte les
               <a href="/" target="_blank" rel="noopener noreferrer"> conditions générales
               </a>
               </label>
-              </div>
-            <div className="terms error"></div>
+            </div>
           </div>
+          <div className="terms error"></div>
           <br />
           <input type="submit" value="Valider inscription" />
         </form>

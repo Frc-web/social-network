@@ -1,35 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './postsGetAll.module.css';
+import SharePost from './PostShare';
 
-const PostSGetAll = () => {
-
-  const headers = {
-    "Content-Type": "application/json",
-    "Authorization": "bearer " + localStorage.getItem('auth')
-  };
+const PostSGetAll = () => {  
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": "bearer " + localStorage.getItem('auth')
+    };
+
     axios({
       method: 'get',
       url: 'http://localhost:5000/api/post/',
       headers
     })
-      .then(res => res.json(console.log(res)))
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result.results);
-        },
-        (error) => {
+      .then(res => {
+        console.log(res.data.results);
+        setIsLoaded(true);
+        setItems(res.data.results);
+      }).catch(error => {
           setIsLoaded(true);
           setError(error);
-        }
-      )
+      })
   }, [])
 
   if (error) {
@@ -38,15 +36,19 @@ const PostSGetAll = () => {
     return <div>Chargement...</div>;
   } else {
     return (
-      <div className={styles.postsContainer}>
-        <ul>
-          {items.map(item => (
-            <li key={item.userId}>
-              {item.title} {item.content}
-            </li>
+      <section className={styles.postsContainer}>
+          {items.map((item, index) => (
+            <div id="onePostContent" className={styles.onePostContainer} key={"post" + index}>
+              <p>Posté par {item.pseudo} le {new Date(item.date).toLocaleDateString() + ' à ' + new Date(item.date).getHours() + 'H' + new Date(item.date).getMinutes()}</p>
+              <h3>{item.title}</h3>
+              <p>{item.content}</p> 
+              <div className={styles.btn}>
+                <button>Like 🤍</button>
+                <SharePost idShare={item.pseudo + item.date + item.title + item.content}/>
+              </div>
+            </div>
           ))}
-        </ul>
-      </div>
+      </section>
     );
   };
 };

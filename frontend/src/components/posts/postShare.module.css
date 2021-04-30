@@ -1,0 +1,9 @@
+.btnShare {
+  border-radius: 5px;
+  padding: 3px;
+  background-color: #ff7b77;
+  color: white;
+  border: 1px solid #ca94ff;
+  cursor: pointer;
+  outline: none;
+}

@@ -3,8 +3,9 @@
   height: 30px;
   border-radius: 10px;
   outline: none;
-  border: 1px solid pink;
+  border: 1px solid #ca94ff;
   margin-top: 7px;
+  padding-left: 7px;
 }
 .formLogin label {
   padding: 0.2rem 0.5rem;
@@ -15,7 +16,8 @@
   font-size: 0.8rem;
 }
 .formLogin input[type="submit"] {
-  background: linear-gradient(160deg, #005de9 0%, #74d8ff 100%);
+  background: #7933bb;
+  border: 1px solid #ff7b77;
   color: white;
   cursor: pointer;
   transition: 0.2s;
@@ -23,9 +25,9 @@
   border-radius: 10px;
   margin-top: 55px;
   box-shadow: 3px 3px 1px rgba(51, 51, 51, 0.418);
-  border: none;
   width: 200px;
   height: 40px;
+  padding: 0;
 }
 .formLogin input[type="submit"]:hover {
   transform: scale(1.03);

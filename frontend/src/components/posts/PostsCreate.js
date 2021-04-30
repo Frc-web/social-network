@@ -22,6 +22,7 @@ const PostsCreate = () => {
       headers
     })
       .then((res) => {
+        window.location = "/";
         console.log(res);
       })
       .catch((err) => {
@@ -30,7 +31,7 @@ const PostsCreate = () => {
   }
 
   return (
-      <div className={styles.postCreateContainer}>
+      <section className={styles.postCreateContainer}>
       <form className={styles.formPosts} id="post-form" action="" onSubmit={handlePost}>
         <label htmlFor="title">Titre</label>
         <br />
@@ -53,7 +54,7 @@ const PostsCreate = () => {
         />
         <input type="submit" value="Envoyer" />
       </form>
-    </div>
+    </section>
   );
 };
 

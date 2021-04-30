@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import styles from './navbar.module.css';
-import logo from './icon-left-font-monochrome-white.svg'
+import logo from './icon-left-font-monochrome-white.svg';
+// import logo from '../../public/img/icon-left-font-monochrome-white.svg';
 
 
 const Navbar = () => {
 
-  const [toggleMenu, setToggleMenu] = useState(false)
-  const [largeur, setLargeur] = useState(window.innerWidth)
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [largeur, setLargeur] = useState(window.innerWidth);
 
   const toggleNavSmallScreen = () => {
     setToggleMenu(!toggleMenu);
