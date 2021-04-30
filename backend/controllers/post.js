@@ -28,7 +28,7 @@ exports.deletePost = (req, res, _next) => {
 }
 
 exports.getAllPosts = (req, res, _next) => {
-  dbConnect.query(`SELECT * FROM posts`, function (error, results, fields) {
+  dbConnect.query(`SELECT posts.id, posts.userId, posts.date, posts.title, posts.content, posts.attachment, users.pseudo FROM posts INNER JOIN users ON posts.userId = users.id ORDER BY date DESC`, function (error, results, fields) {
     if (error) throw error;
     return res.status(200).json({ results })
   })
