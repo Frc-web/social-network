@@ -28,7 +28,17 @@ CREATE TABLE `posts`
     `content` TEXT,
     `attachment` VARCHAR(255),
 
-    PRIMARY KEY(`id`),
-    CONSTRAINT `fk_posts_userId` FOREIGN KEY(`userId`) REFERENCES `users`(`id`) ON DELETE CASCADE
+    PRIMARY KEY(`id`)
+)
+    ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `share`
+(
+    `id` SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `date` DATETIME NOT NULL,
+    `user_Id` SMALLINT UNSIGNED NOT NULL,
+    `post_Id` SMALLINT UNSIGNED NOT NULL,
+
+    PRIMARY KEY(`id`)
 )
     ENGINE=INNODB DEFAULT CHARSET=utf8;
