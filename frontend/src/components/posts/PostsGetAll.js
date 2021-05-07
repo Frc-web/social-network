@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './postsGetAll.module.css';
-import SharePost from './PostShare';
+import PostShare from './PostShare';
 
 const PostSGetAll = () => {  
 
@@ -21,7 +21,6 @@ const PostSGetAll = () => {
       headers
     })
       .then(res => {
-        console.log(res.data.results);
         setIsLoaded(true);
         setItems(res.data.results);
       }).catch(error => {
@@ -44,7 +43,7 @@ const PostSGetAll = () => {
               <p>{item.content}</p> 
               <div className={styles.btn}>
                 <button>Like 🤍</button>
-                <SharePost idShare={item.pseudo + item.date + item.title + item.content}/>
+                <PostShare shareId={item.id}/>
               </div>
             </div>
           ))}
