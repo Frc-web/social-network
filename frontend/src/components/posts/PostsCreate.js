@@ -22,8 +22,8 @@ const PostsCreate = () => {
       headers
     })
       .then((res) => {
-        window.location = "/";
         console.log(res);
+        window.location = "/";
       })
       .catch((err) => {
         console.log(err);

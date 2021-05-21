@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './postsGetAll.module.css';
-import PostShare from './PostShare';
+import CreateShare from './CreateShare';
 
 const PostSGetAll = () => {  
 
@@ -23,6 +23,7 @@ const PostSGetAll = () => {
       .then(res => {
         setIsLoaded(true);
         setItems(res.data.results);
+        console.log(res.data.results);
       }).catch(error => {
           setIsLoaded(true);
           setError(error);
@@ -37,13 +38,14 @@ const PostSGetAll = () => {
     return (
       <section className={styles.postsContainer}>
           {items.map((item, index) => (
+            
             <div id="onePostContent" className={styles.onePostContainer} key={"post" + index}>
               <p>Posté par {item.pseudo} le {new Date(item.date).toLocaleDateString() + ' à ' + new Date(item.date).getHours() + 'H' + new Date(item.date).getMinutes()}</p>
               <h3>{item.title}</h3>
               <p>{item.content}</p> 
               <div className={styles.btn}>
                 <button>Like 🤍</button>
-                <PostShare shareId={item.id}/>
+                <CreateShare copyShare={item}  />
               </div>
             </div>
           ))}

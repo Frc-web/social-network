@@ -28,10 +28,12 @@
   outline: none;
   resize: none;
   margin-top: 7px;
+  font-size: 0.9rem;
 }
 
 .formPosts input {
-  padding: 10px 70px;
+  width: 400px;
+  padding: 10px;
   margin-bottom: 20px;
   border: 1px solid pink;
   border-radius: 10px;

@@ -40,10 +40,3 @@ exports.getOnePost = (req, res, next) => {
     return res.status(200).json({ results })
   })
 }
-
-exports.sharePost = (req, res, next) => {
-  dbConnect.query(`SELECT share.id, share.user_Id, share.post_Id, share.date, posts.date, posts.title, posts.content, posts.attachment, users.pseudo, FROM share INNER JOIN users ON share.user_Id = users.id where posts.id=? ORDER BY date DESC`, [req.params.id], function (error, results, fields) {
-    if (error) throw error;
-    return res.status(200).json({ results })
-  })
-}
