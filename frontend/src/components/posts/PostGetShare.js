@@ -23,7 +23,6 @@ const PostGetShare = () => {
         setIsLoaded(true);
         setItems(res.data.results);
         console.log(res.data.results);
-        console.log(items);
       }).catch(error => {
         setIsLoaded(true);
         setError(error);
@@ -41,12 +40,15 @@ const PostGetShare = () => {
       <section className={styles.postsContainer}>
         {items.map((item, index) => (
           <div id="oneShareContent" className={styles.onePostContainer} key={"postshare" + index}>
-            <p>Posté par {item.pseudo} le {new Date(item.date).toLocaleDateString() + ' à ' + new Date(item.date).getHours() + 'H' + new Date(item.date).getMinutes()}</p>
-            <h3>{item.title}</h3>
-            <p>{item.content}</p>
-            <div className={styles.btn}>
-              <button>Like 🤍</button>
+
+            <p>Partagé par {item.pseudo} le {new Date(item.date).toLocaleDateString() + ' à ' + new Date(item.date).getHours() + 'H' + (new Date(item.date).getMinutes() < 10 ? '0' : '') + new Date(item.date).getMinutes()}</p>
+
+            <div className={styles.shareContainer}>
+              <p>Posté par {item.author} le {new Date(item.postDate).toLocaleDateString() + ' à ' + new Date(item.postDate).getHours() + 'H' + (new Date(item.date).getMinutes() < 10 ? '0' : '') + new Date(item.postDate).getMinutes()}</p>
+              <h3>{item.title}</h3>
+              <p>{item.content}</p>
             </div>
+
           </div>
         ))}
       </section>

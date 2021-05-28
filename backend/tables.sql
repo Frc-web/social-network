@@ -11,7 +11,6 @@ CREATE TABLE `users`
     `email` VARCHAR(255) NOT NULL UNIQUE,
     `password` VARCHAR(255) NOT NULL,
     `bio` TEXT,
-    `likes` VARCHAR(255),
     `picture` VARCHAR(255),
     `isAdmin` BOOLEAN DEFAULT FALSE,
 
@@ -26,7 +25,6 @@ CREATE TABLE `posts`
     `date` DATETIME NOT NULL,
     `title` VARCHAR(255) NOT NULL,
     `content` TEXT,
-    `attachment` VARCHAR(255),
 
     PRIMARY KEY(`id`),
     CONSTRAINT `fk_posts_userId` FOREIGN KEY (`userId`) REFERENCES `users`(`id`) ON DELETE CASCADE

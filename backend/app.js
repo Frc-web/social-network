@@ -8,6 +8,7 @@ require('./config/db.js');
 const postRoutes = require('./routes/post');
 const shareRoutes = require('./routes/share');
 const userRoutes = require('./routes/user');
+const bioRoutes = require('./routes/bio');
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/post', postRoutes);
 app.use('/api/share', shareRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/bio', bioRoutes);
 
 module.exports = app;

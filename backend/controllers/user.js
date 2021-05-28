@@ -15,14 +15,14 @@ exports.deleteUser = (req, res, next) => {
 }
 
 exports.getAllUsers = (req, res, next) => {
-  dbConnect.query(`SELECT id, pseudo, lastname, firstname, email, bio, likes, picture, isAdmin FROM users`, function (error, results, fields) {
+  dbConnect.query(`SELECT id, pseudo, lastname, firstname, email, bio, picture, isAdmin FROM users`, function (error, results, fields) {
     if (error) throw error;
     return res.status(200).json({ results })
   })
 }
 
 exports.getOneUser = (req, res, next) => {
-  dbConnect.query(`SELECT id, pseudo, lastname, firstname, email, bio, likes, picture, isAdmin FROM users  WHERE id=?`, [req.params.id], function (error, results, fields) {
+  dbConnect.query(`SELECT id, pseudo, lastname, firstname, email, bio, picture, isAdmin FROM users  WHERE id=?`, [req.params.id], function (error, results, fields) {
     if (error) throw error;
     return res.status(200).json({ results })
   })
