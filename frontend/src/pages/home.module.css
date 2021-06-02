@@ -1,9 +1,0 @@
-.homePage {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-}
-.homeContainer {
-  margin: 30px auto;
-  max-width: 1200px;
-}

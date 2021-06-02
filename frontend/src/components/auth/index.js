@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
-import styles from './index.module.css';
 
 const Auth = ( props ) => {
   const [signUpChoice, setSignUpChoice] = useState(props.prSignup); /* -(hook)- sur (true), c'est la props du composant Profil */
@@ -18,12 +17,12 @@ const Auth = ( props ) => {
   };
 
   return (
-    <div className={styles.connectionForm}>
+    <div className="cardUser">
         <ul>
           <li id="signup-btn" onClick={selectChoice}
-            className={signUpChoice ? styles.active_btn : null}>S'inscrire</li> {/* si signUpForm est sur true (mettre la classe active-btn), sinon (pas de classe) */}
+            className={signUpChoice ? "active_btn" : null}>Inscription</li> {/* si signUpForm est sur true (mettre la classe active-btn), sinon (pas de classe) */}
           <li id="login-btn" onClick={selectChoice}
-            className={loginChoice ? styles.active_btn : null}>Se connecter</li>
+            className={loginChoice ? "active_btn" : null}>Connection</li>
         </ul>
         {signUpChoice && <SignupForm />} {/* si signUpForm est sur true, on affiche la page Signup */}
         {loginChoice && <LoginForm />} {/* si loginForm est sur true, on affiche la page Login */}

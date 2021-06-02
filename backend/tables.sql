@@ -10,7 +10,6 @@ CREATE TABLE `users`
     `firstname` VARCHAR(50) NOT NULL,
     `email` VARCHAR(255) NOT NULL UNIQUE,
     `password` VARCHAR(255) NOT NULL,
-    `bio` TEXT,
     `picture` VARCHAR(255),
     `isAdmin` BOOLEAN DEFAULT FALSE,
 

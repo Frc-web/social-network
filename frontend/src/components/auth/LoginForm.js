@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styles from './loginForm.module.css';
 
 const LoginForm = () => {
   const [pseudo, setPseudo] = useState('');
@@ -8,8 +7,6 @@ const LoginForm = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    // const pseudoError = document.querySelector(".pseudo.error"); 
-    // const passwordError = document.querySelector(".password.error");
 
     axios({
       method: 'post',
@@ -30,8 +27,8 @@ const LoginForm = () => {
   }
 
   return (
-    <form className={styles.formLogin} id="sign-up-form" action="" onSubmit={handleLogin}>{/* quand on fait un onSubmit, on fait un input type submit, qui déclenche la fonction quand on clique dedans */}
-      <label htmlFor="pseudo">Pseudo</label>
+    <form className="form" id="sign-up-form" action="" onSubmit={handleLogin}>{/* quand on fait un onSubmit, on fait un input type submit, qui déclenche la fonction quand on clique dedans */}
+      <label htmlFor="pseudo"><i className="fas fa-user"></i>Pseudo</label>
       <br />
       <input
         type="text"
@@ -42,7 +39,7 @@ const LoginForm = () => {
       />
       <div className="pseudo error"></div>
       <br />
-      <label htmlFor="password">Mot de passe</label>
+      <label htmlFor="password"><i className="fas fa-key"></i>Mot de passe</label>
       <br />
       <input
         type="password"
@@ -52,9 +49,9 @@ const LoginForm = () => {
         value={password}
       />
       <div className="password error"></div>
-      <input type="submit" value="Se connecter" /> {/* quand on fait un onSubmit, on fait un input type submit, qui déclenche la fonction quand on clique dedans */}
+      <input type="submit" value="Connection" />
     </form>
-  );
+  )
 };
 
 export default LoginForm;

@@ -1,19 +1,277 @@
+:root {
+  --primaryColor: rgb(96, 144, 207);
+  --borderColor: rgb(151, 151, 151);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
-  background-color: #55bbe4;
+  background-color: rgb(224, 224, 224);
   height: 100vh;
+  color: rgb(58, 58, 58);
 }
-
 .error {
   color: rgb(189, 7, 7);
 }
-
 .success {
   color: green;
   font-weight: bold;
+}
+
+/* ---------- home ---------- */
+.homePage {
+  display: flex;
+  justify-content: center;
+}
+.homeContainer {
+  width: 1200px;
+}
+
+/* ---------- formulaire ---------- */
+.cardUser {
+  width: 50%;
+  margin: 80px auto;
+  background: var(--primaryColor);
+  text-align: center;
+  padding: 20px 20px 50px;
+  border-radius: 10px;
+  box-shadow: 12px 10px 3px 1px rgb(121 121 121);
+}
+.cardUser ul {
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.cardUser li {
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  width: 130px;
+  transition: 0.3s;
+  box-shadow: 3px 3px 1px rgba(51, 51, 51, 0.418);
+  background: rgb(68, 122, 192);
+  color: white;
+  border: 1px solid white;
+  font-size: 1.1rem;
+  font-family: sans-serif;
+}
+.cardUser li:hover {
+  color: rgb(65, 121, 194) !important;
+  background: white !important;
+  border: 1px solid white;
+}
+.cardUser li:not(.active_btn):hover {
+  transform: translateX(3px);
+}
+.active_btn {
+  color: rgb(65, 121, 194) !important;
+  background: white !important;
+  border: 1px solid white;
+}
+.form input {
+  width: 60%;
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  margin-top: 7px;
+  padding-left: 15px;
+}
+.form label {
+  padding: 0.2rem 0.5rem;
+  background-color: rgb(96, 144, 207);
+  color: white;
+  border-radius: 10px;
+  font-size: rem;
+}
+.form label a {
+  color: white;
+  text-decoration: none;
+}
+.form input[type="submit"] {
+  background: rgb(68, 122, 192);
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  margin-top: 55px;
+  box-shadow: 3px 3px 1px rgba(51, 51, 51, 0.418);
+  width: 200px;
+  height: 40px;
+  padding: 0;
+}
+.form input[type="submit"]:hover {
+  transform: scale(1.03);
+  background-color: #ffffff;
+  color: rgb(96, 144, 207);
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form input[type="checkbox"] {
+  width: 20px;
+  margin-right: 10px;
+}
+.title {
+  color: rgb(63, 121, 196);
+  margin: 10px 0;
+}
+.text {
+  word-wrap: break-word;
+  text-align: left;
+}
+
+/* ---------- posts/share/bio ---------- */
+section {
+  width: 100%;
+}
+.card {
+  background-color: rgb(255, 255, 255);
+  width: 70%;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 8px 2px rgb(51 51 51 / 42%);
+  margin: 10px auto;
+}
+.cardShare {
+  width: 95%;
+  margin: 10px auto;
+  border-radius: 15px;
+  background-color: rgba(96, 144, 207, 0.137);
+}
+.btnShare {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+hr {
+  height: 1px;
+  width: 95%;
+  background-color: var(--primaryColor);
+  border: none;
+  margin: auto;
+}
+button {
+  border-radius: 5px;
+  padding: 4px 6px;
+  background-color: var(--primaryColor);
+  color: white;
+  border: 1px solid var(--borderColor);
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+}
+button:hover {
+  background-color:rgb(68, 122, 192);
+  border: 1px solid rgb(0, 0, 0);
+}
+.bioCard {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin-top: 80px;
+}
+.fas, .far {
+  color: white;
+  margin-right: 5px;
+}
+.iconeShare, .fa-envelope {
+  color: var(--primaryColor);
+  margin: 10px 10px;
+}
+.fa-mail {
+  color: white;
+  margin: 0 10px;
+}
+.fasBio{
+  margin-right: 10px;
+  color: var(--primaryColor);
+}
+
+/* ---------- create post ---------- */
+.postCreateContainer {
+  background: var(--primaryColor);
+  padding: 20px;
+}
+.inputCreate {
+  margin-bottom: 20px;
+}
+.form textarea {
+  min-height: 100px;
+  border: 1px solid pink;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  width: 100%;
+  font-size: 1.2rem;
+  outline: none;
+  resize: none;
+  margin-top: 7px;
+  font-size: 0.9rem;
+}
+.pseudo {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* ---------- delete user ---------- */
+.btnDelete {
+  padding: 10px;
+  background-color: rgb(179, 0, 0);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+/* ---------- media queries ---------- */
+@media screen and (max-width: 1200px){
+  .card {
+    width: 90%;
+  }
+  .cardShare {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 900px){
+  .cardUser {
+    width: 80%;
+  }
+  .card {
+    border-radius: 0px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .cardShare {
+
+    margin: 10px auto;
+    border-radius: 10px;
+  }
+  .bioCard {
+    border: none;
+  }
+}
+@media screen and (max-width: 550px){
+  body {
+    background-color: var(--primaryColor);
+  }
+  .cardUser {
+    width: 100%;
+    margin: 0px auto;
+    text-align: center;
+    padding: 20px 20px 50px;
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+  }
+  .form input {
+    width: 80%;
+  }
 }

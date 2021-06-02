@@ -25,7 +25,7 @@ const CreateShare = ( props ) => {
         console.log(err);
       });
   }
-  return <button onClick={handleShare}>Partager</button>
+  return <button onClick={handleShare}><i className="fas fa-share-alt"> Partager</i></button>
 };
 
 export default CreateShare;

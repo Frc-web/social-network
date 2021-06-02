@@ -3,6 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Home from '../../pages/Home';
 import Profil from '../../pages/Profil';
+import UserAccount from '../../pages/UserAccount'
+import Footer from '../footer/Footer';
 import Navbar from '../navbar/Navbar';
 
 const Routes = () => {
@@ -12,8 +14,10 @@ const Routes = () => {
      <Switch> {/* le switch test toutes les routes */}
        <Route path="/" exact component={Home} />
        <Route path="/profil" exact component={Profil} />
+       <Route path="/account" exact component={UserAccount} />
        <Redirect to="/" /> {/* on est redirigé sur l'accueil si aucune route ne fonctionne */}
      </Switch>
+      <Footer />
    </Router>
   );
 };

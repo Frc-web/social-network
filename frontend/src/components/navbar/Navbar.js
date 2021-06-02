@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import {NavLink} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './navbar.module.css';
 import logo from './icon-left-font-monochrome-white.svg';
-// import logo from '../../public/img/icon-left-font-monochrome-white.svg';
-
 
 const Navbar = () => {
 
@@ -17,7 +15,7 @@ const Navbar = () => {
   useEffect(() => {
     const changeWidth = () => {
       setLargeur(window.innerWidth);
-      if(window.innerWidth > 500) {
+      if (window.innerWidth > 550) {
         setToggleMenu(false);
       }
     }
@@ -29,24 +27,29 @@ const Navbar = () => {
 
   return (
     <nav>
-      <NavLink exact to="/">
-        <div className={styles.logo}>
-          <img className={styles.img} src={logo} alt="logo" />
+      <div className={styles.container}>
+        <NavLink exact to="/">
+          <div className={styles.logo}>
+            <img className={styles.img} src={logo} alt="logo" />
+          </div>
+        </NavLink>
+        <div>
+          {/* si toggleMenu is true, on affiche ce qu'il y a entre parenthèses, sinon rien */}
+          {(toggleMenu || largeur > 550) && (
+            <ul className={styles.liste}>
+              <NavLink exact to="/profil">
+                <li className={styles.items}><i className="fas fa-user"></i>Profil</li>
+              </NavLink>
+              <NavLink exact to="/account">
+                <li className={styles.items}><i className="fas fa-pencil-alt"></i>Compte</li>
+              </NavLink>
+              <NavLink exact to="/home">
+                <li className={styles.items}><i className="fas fa-home"></i>Accueil</li>
+              </NavLink>
+            </ul>
+          )}
+          <button onClick={toggleNavSmallScreen} className={styles.btn}><i className="fas fa-bars"></i></button>
         </div>
-      </NavLink>
-      <div>
-        {/* si toggleMenu is true, on affiche ce qu'il y a entre parenthèses, sinon rien */}
-        {(toggleMenu || largeur > 500) && (
-          <ul className={styles.liste}>
-            <NavLink exact to="/profil">
-              <li className={styles.items}>Profil</li>
-            </NavLink>
-            <NavLink exact to="/home">
-              <li className={styles.items}>Accueil</li>
-            </NavLink>
-          </ul>
-        )}
-        <button onClick={toggleNavSmallScreen} className={styles.btn}>MENU</button>
       </div>
     </nav>
   );

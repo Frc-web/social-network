@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import styles from './bio.module.css';
+import Disconect from './Disconect';
 
 const Bio = () => {
 
@@ -37,8 +37,9 @@ const Bio = () => {
     return (
       <section>
          {items.map((item, index) => (
-            <div id="onePostContent" className={styles.onePostContainer} key={"bio" + index}>
-              <h3>{item.pseudo} est connecté</h3>
+            <div className="card bioCard" key={"bio" + index}>
+              <h3><i className="fas fa-user fasBio"></i>{item.pseudo}</h3>
+              <Disconect />
             </div>
           ))}
       </section>

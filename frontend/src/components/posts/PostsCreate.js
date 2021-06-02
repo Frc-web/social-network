@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styles from './postsCreate.module.css';
 
 const PostsCreate = () => {
   const [title, setTitle] = useState("");
@@ -31,11 +30,12 @@ const PostsCreate = () => {
   }
 
   return (
-      <section className={styles.postCreateContainer}>
-      <form className={styles.formPosts} id="post-form" action="" onSubmit={handlePost}>
+      <section className="card postCreateContainer">
+      <form className="form" id="post-form" action="" onSubmit={handlePost}>
         <label htmlFor="title">Titre</label>
         <br />
         <input
+          className="inputCreate"
           type="text"
           name="title"
           id="title"
@@ -52,7 +52,7 @@ const PostsCreate = () => {
           onChange={(event) => setContent(event.target.value)}
           value={content}
         />
-        <input type="submit" value="Envoyer" />
+        <input type="submit" value="Envoyer   ✉️"/>
       </form>
     </section>
   );

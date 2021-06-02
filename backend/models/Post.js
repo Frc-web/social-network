@@ -9,13 +9,13 @@ const Post = (post) => {
 }
 
 Post.create = (newPost, callback) => {
-  dbConnect.query(`INSERT INTO posts (userId, title, content, date ) VALUES (?,?,?, NOW())`, [newPost.userId, newPost.title, newPost.content], (err, results) => {
+  dbConnect.query(`INSERT INTO posts (posts.userId, posts.title, posts.content, posts.date ) VALUES (?,?,?, NOW())`, [newPost.userId, newPost.title, newPost.content], (err, results) => {
     callback(err, results);
   });
 };
 
-Post.getAll = (newPost, callback) => {
-  dbConnect.query(`SELECT id, userId, date, title, content, users.pseudo FROM posts INNER JOIN users ON userId = users.id ORDER BY date DESC`, (err, results) => {
+Post.getAll = (callback) => {
+  dbConnect.query(`SELECT p.id, p.userId, p.date, p.title, p.content, u.pseudo FROM posts p INNER JOIN users u ON p.userId = u.id ORDER BY date DESC`, (err, results) => {
     callback(err, results);
   });
 };

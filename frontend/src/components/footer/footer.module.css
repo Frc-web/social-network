@@ -1,0 +1,8 @@
+.footer {
+  height: 50px;
+}
+@media screen and (max-width: 550px){
+  .footer {
+    height: 0;
+  }
+}
