@@ -13,7 +13,7 @@ Share.create = (newShare, callback) => {
   });
 };
 
-Share.get = (callback) => {
+Share.getAll = (callback) => {
   dbConnect.query(`SELECT share.id, share.user_Id, share.post_Id, share.date, posts.date AS 'postDate', posts.title, posts.content, users.pseudo, u.pseudo as 'author' FROM share INNER JOIN users ON share.user_Id = users.id INNER JOIN posts ON share.post_Id = posts.id INNER JOIN users u on posts.userId = u.id ORDER BY share.date DESC`, (err, results) => {
     callback(err, results);
   });

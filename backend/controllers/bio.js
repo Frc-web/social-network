@@ -1,5 +1,5 @@
 const dbConnect = require('../config/db');
-const Bio = require('./../models/Bio');
+// const Bio = require('./../models/Bio');
 
 // exports.getBio = (req, res, next) => {
 //   let bio = {

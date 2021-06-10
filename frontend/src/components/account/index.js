@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import DeleteAccount from './DeleteAccount';
 import ModifyAccount from './ModifyAccount';
 
-const Account = ( props ) => {
+const Account = (props) => {
 
   const [modifyChoice, setModifyChoice] = useState(props.prModify); /* (true) */
   const [deleteChoice, setDeleteChoice] = useState(props.prDelete); /* (false) */
 
-  const selectChoice = (event) => { 
-    if (event.target.id === "modify-btn") { 
+  const userId = sessionStorage.getItem('userId');
+  const isAdmin = sessionStorage.getItem('isAdmin');
+
+  const selectChoice = (event) => {
+    if (event.target.id === "modify-btn") {
       setModifyChoice(true);
       setDeleteChoice(false);
     } else if (event.target.id === "delete-btn") {
@@ -17,18 +20,24 @@ const Account = ( props ) => {
     }
   };
 
-  return (
-    <div className="cardUser">
+  if (isAdmin == 1 /*|| userId == req.decodToken)*/) {
+    return (
+      <div className="cardUser">
         <ul>
           <li id="modify-btn" onClick={selectChoice}
-            className={modifyChoice ? "active_btn" : null}>Modifier le compte</li> {/* si signUpForm est sur true (mettre la classe active-btn), sinon (pas de classe) */}
+            className={modifyChoice ? "active_btn" : null}>Modifier le compte</li>
           <li id="delete-btn" onClick={selectChoice}
             className={deleteChoice ? "active_btn" : null}>Supprimer le compte</li>
         </ul>
-        {modifyChoice && <ModifyAccount />} {/* si signUpForm est sur true, on affiche la page Signup */}
-        {deleteChoice && <DeleteAccount />} {/* si loginForm est sur true, on affiche la page Login */}
-    </div>
-  );
+        {modifyChoice && <ModifyAccount />}
+        {deleteChoice && <DeleteAccount />}
+      </div>
+    )
+  } else {
+    // return null;
+    alert("Vous n'avez pas accès à ces informations");
+    return window.location = "/profil";
+  }
 };
 
 export default Account;

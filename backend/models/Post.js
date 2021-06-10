@@ -20,4 +20,10 @@ Post.getAll = (callback) => {
   });
 };
 
+Post.delete = (deletePost, callback) => {
+  dbConnect.query(`DELETE FROM posts WHERE id= ?`, [deletePost.id], (err, results) => {
+    callback(err, results);
+  });
+};
+
 module.exports = Post;

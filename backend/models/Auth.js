@@ -8,7 +8,7 @@ const Auth = (auth) => {
   this.email = auth.email ? auth.email : null;
   this.password = auth.password ? auth.password : null;
   this.pictures = auth.pictures ? auth.pictures : null;
-  this.isAdmin = auth.isAdmin ? auth.isAdmin : null;
+  this.isAdmin = auth.isAdmin ? true : false;
 }
 
 Auth.create = (newUser, callback) => {

@@ -53,23 +53,23 @@ body {
   width: 130px;
   transition: 0.3s;
   box-shadow: 3px 3px 1px rgba(51, 51, 51, 0.418);
-  background: rgb(68, 122, 192);
-  color: white;
+  color: rgb(65, 121, 194);
+  background: white;
   border: 1px solid white;
   font-size: 1.1rem;
   font-family: sans-serif;
 }
 .cardUser li:hover {
-  color: rgb(65, 121, 194) !important;
-  background: white !important;
+  background: rgb(68, 122, 192) !important;
+  color: white !important;
   border: 1px solid white;
 }
 .cardUser li:not(.active_btn):hover {
   transform: translateX(3px);
 }
 .active_btn {
-  color: rgb(65, 121, 194) !important;
-  background: white !important;
+  background: rgb(68, 122, 192) !important;
+  color: white !important;
   border: 1px solid white;
 }
 .form input {
@@ -108,8 +108,8 @@ body {
 }
 .form input[type="submit"]:hover {
   transform: scale(1.03);
-  background-color: #ffffff;
-  color: rgb(96, 144, 207);
+  background-color: rgb(63, 107, 165);
+  color: #fff;
 }
 .checkbox {
   display: flex;
@@ -148,9 +148,14 @@ section {
   border-radius: 15px;
   background-color: rgba(96, 144, 207, 0.137);
 }
-.btnShare {
+.btnPost {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+}
+.deleteBtn {
+  display: flex;
+  justify-content: flex-end;
   margin-top: 20px;
   font-size: 0.9rem;
 }
@@ -182,7 +187,7 @@ button:hover {
   margin-top: 80px;
 }
 .fas, .far {
-  color: white;
+  color: #fff;
   margin-right: 5px;
 }
 .iconeShare, .fa-envelope {
@@ -208,7 +213,6 @@ button:hover {
 }
 .form textarea {
   min-height: 100px;
-  border: 1px solid pink;
   border-radius: 10px;
   padding: 10px 15px;
   font-size: 1.1rem;
@@ -218,6 +222,7 @@ button:hover {
   resize: none;
   margin-top: 7px;
   font-size: 0.9rem;
+  border: none;
 }
 .pseudo {
   font-size: 1.2rem;
@@ -229,6 +234,15 @@ button:hover {
   padding: 10px;
   background-color: rgb(179, 0, 0);
   border: 1px solid rgb(255, 255, 255);
+}
+.fa-supp {
+  padding-left: 5px ;
+}
+.btnSupp {
+  background-color: var(--primaryColor);
+}
+.btnSupp:hover {
+  background-color: rgb(179, 0, 0);
 }
 
 /* ---------- media queries ---------- */

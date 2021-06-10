@@ -8,17 +8,19 @@ const User = (user) => {
   this.email = user.email ? user.email : null;
   this.password = user.password ? user.password : null;
   this.pictures = user.pictures ? user.pictures : null;
-  this.isAdmin = user.isAdmin ? user.isAdmin : null;
+  this.isAdmin = user.isAdmin ? true : false;
 }
 
 User.modify = (modifyUser, callback) => {
-  dbConnect.query(`UPDATE users SET pseudo=?, lastname=?, firstname=?, email=?, password=?, picture=?, isAdmin=? WHERE id= ?`, [modifyUser.pseudo, modifyUser.lastname, modifyUser.firstname, modifyUser.email, modifyUser.password, modifyUser.picture, modifyUser.isAdmin, req.decodToken.userId], (err, results) => {
+  dbConnect.query(`UPDATE users SET pseudo=?, lastname=?, firstname=?, email=?, password=?, picture=?, isAdmin=? WHERE id= ?`, [modifyUser.pseudo, modifyUser.lastname, modifyUser.firstname, modifyUser.email, modifyUser.password, modifyUser.picture, modifyUser.isAdmin, modifyUser.id], (err, results) => {
     callback(err, results);
   });
-}
+};
 
-User.delete = (callback) => {
-  dbConnect.query(`DELETE FROM users WHERE id= ?`, [req.decodToken.userId], (err, results) => {
+User.delete = (deleteUser, callback) => {
+  dbConnect.query(`DELETE FROM users WHERE id= ?`, [deleteUser.id], (err, results) => {
     callback(err, results);
   });
-}
+};
+
+module.exports = User;

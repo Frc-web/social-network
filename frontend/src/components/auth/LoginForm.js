@@ -19,6 +19,8 @@ const LoginForm = () => {
       .then((res) => {
         console.log(res);
           localStorage.setItem("auth", res.data.token);
+          sessionStorage.setItem("userId", res.data.userId);
+          sessionStorage.setItem("isAdmin", res.data.isAdmin);
           window.location = "/";
       })
       .catch((err) => {
