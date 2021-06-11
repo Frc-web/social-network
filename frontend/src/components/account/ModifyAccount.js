@@ -27,7 +27,7 @@ const ModifyAccount = () => {
         "Les mots de passe ne correspondent pas";
     } else {
       await axios({
-        method: "post",
+        method: "put",
         url: 'http://localhost:5000/api/user/' + userId,
         data: {
           lastname,
