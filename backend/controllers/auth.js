@@ -9,15 +9,15 @@ exports.signup = (req, res) => {
     bcrypt
       .hash(req.body.password, 10)
       .then(hash => {
-        let auth = {
+        let auth ={
           pseudo : req.body.pseudo,
           lastname : req.body.lastname,
           firstname : req.body.firstname,
           email : req.body.email,
           password : hash,
           pictures : req.body.pictures,
-          isAdmin : req.body.isAdmin,
-        }
+          isAdmin : req.body.isAdmin ? req.body.isAdmin : false,
+        };
         Auth.create(auth, (error, results) => {
           if (error) throw error;
           return res.status(201).json({ message: "Utilisateur créé !" })

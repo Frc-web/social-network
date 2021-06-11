@@ -16,7 +16,7 @@ exports.modifyUser = (req, res) => {
           email : req.body.email,
           password : hash,
           pictures : req.body.pictures,
-          isAdmin : req.body.isAdmin,
+          isAdmin : req.body.isAdmin ? req.body.isAdmin : false,
         }
         User.modify(user, (error, results) => {
           if (error) throw error;

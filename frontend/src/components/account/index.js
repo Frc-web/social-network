@@ -7,8 +7,8 @@ const Account = (props) => {
   const [modifyChoice, setModifyChoice] = useState(props.prModify); /* (true) */
   const [deleteChoice, setDeleteChoice] = useState(props.prDelete); /* (false) */
 
-  const userId = sessionStorage.getItem('userId');
-  const isAdmin = sessionStorage.getItem('isAdmin');
+  // const userId = sessionStorage.getItem('userId');
+  // const isAdmin = sessionStorage.getItem('isAdmin');
 
   const selectChoice = (event) => {
     if (event.target.id === "modify-btn") {
@@ -20,7 +20,7 @@ const Account = (props) => {
     }
   };
 
-  if (isAdmin == 1 /*|| userId == req.decodToken)*/) {
+  // if (isAdmin == 1 /*|| userId == req.decodToken)*/) {
     return (
       <div className="cardUser">
         <ul>
@@ -33,11 +33,11 @@ const Account = (props) => {
         {deleteChoice && <DeleteAccount />}
       </div>
     )
-  } else {
-    // return null;
-    alert("Vous n'avez pas accès à ces informations");
-    return window.location = "/profil";
-  }
+  // } else {
+  //   // return null;
+  //   alert("Vous n'avez pas accès à ces informations");
+  //   return window.location = "/profil";
+  // }
 };
 
 export default Account;

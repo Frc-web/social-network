@@ -31,6 +31,31 @@ const PostSGetAll = () => {
       })
   }, [])
 
+  const handleDeletePost = (event, id) => {
+    event.preventDefault();
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": "bearer " + localStorage.getItem('auth')
+    }
+
+    axios({
+      method: 'delete',
+      url: 'http://localhost:5000/api/post/' + id,
+      headers
+    })
+      .then((res) => {
+        console.log(res);
+        let oldState = [...items];
+        let deletedItem = oldState.findIndex(elt => elt.id == id );
+        oldState.splice(deletedItem, 1);
+        setItems(oldState);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+
   if (error) {
     return <div>Erreur : {error.message}</div>;
   } else if (!isLoaded) {
@@ -48,7 +73,7 @@ const PostSGetAll = () => {
             <p className="text">{item.content}</p>
           </div>
           <div className="deleteBtn">
-            <DeletePost />
+            <DeletePost author={item.userId} />
           </div>
         </article>)
       } else {
@@ -59,7 +84,7 @@ const PostSGetAll = () => {
           <p className="text">{item.content}</p>
           <div className="btnPost">
             <CreateShare copyShare={item} />
-            <DeletePost />
+            <DeletePost postId={item.id} author={item.userId} handleClick={handleDeletePost} />
           </div>
         </article>)
       }
