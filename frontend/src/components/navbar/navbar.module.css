@@ -34,10 +34,6 @@ nav {
   text-decoration: underline;
 }
 
-.btn {
-  display: none;
-}
-
 @media screen and (max-width: 900px) {
   nav {
     height: 50px;
@@ -52,23 +48,7 @@ nav {
   .container {
     flex-direction: column;
   }
-  .img {
-    margin-top: 10px;
-  }
-  .btn {
-    display: block;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    color: white;
-    cursor: pointer;
-    color: black;
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    font-size: 20px;
-  }
-  .btn:hover {
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
+  .logo {
+    padding-top: 10px;
   }
 }

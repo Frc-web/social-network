@@ -1,41 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './navbar.module.css';
 import logo from './icon-left-font-monochrome-white.svg';
 
 const Navbar = () => {
 
-  const [toggleMenu, setToggleMenu] = useState(false);
-  const [largeur, setLargeur] = useState(window.innerWidth);
-
-  const toggleNavSmallScreen = () => {
-    setToggleMenu(!toggleMenu);
-  }
-
-  useEffect(() => {
-    const changeWidth = () => {
-      setLargeur(window.innerWidth);
-      if (window.innerWidth > 550) {
-        setToggleMenu(false);
-      }
-    }
-    window.addEventListener('resize', changeWidth);
-    return () => {
-      window.removeEventListener('resize', changeWidth);
-    }
-  }, [])
-
   return (
-    <nav>
+    <nav id="navStyle">
       <div className={styles.container}>
         <NavLink exact to="/">
           <div className={styles.logo}>
             <img className={styles.img} src={logo} alt="logo" />
           </div>
         </NavLink>
-        <div>
-          {/* si toggleMenu is true, on affiche ce qu'il y a entre parenthèses, sinon rien */}
-          {(toggleMenu || largeur > 550) && (
+        <div>          
             <ul className={styles.liste}>
               <NavLink exact to="/profil">
                 <li className={styles.items}><i className="fas fa-user"></i>Profil</li>
@@ -47,8 +25,6 @@ const Navbar = () => {
                 <li className={styles.items}><i className="fas fa-home"></i>Accueil</li>
               </NavLink>
             </ul>
-          )}
-          <button onClick={toggleNavSmallScreen} className={styles.btn}><i className="fas fa-bars"></i></button>
         </div>
       </div>
     </nav>
