@@ -73,7 +73,7 @@ const PostSGetAll = () => {
             <p className="text">{item.content}</p>
           </div>
           <div className="deleteBtn">
-            <DeletePost author={item.userId} />
+          <DeletePost postId={item.id} sharer={item.user_Id}/>
           </div>
         </article>)
       } else {
